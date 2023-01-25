@@ -1,6 +1,7 @@
 package com.example;
 
-public class Vegetables {
+public class Article {
+    private Long id;
     private String producto;
     private String variedad;
     private Double cantidad;
@@ -8,10 +9,11 @@ public class Vegetables {
     private Productor productor;
     private Double cantMin;
 
-    public Vegetables() {
+    public Article() {
     }
 
-    public Vegetables(String producto, String variedad, Double cantidad, Double precioPorKg, Productor productor, Double cantMin) {
+    public Article(Long id, String producto, String variedad, Double cantidad, Double precioPorKg, Productor productor, Double cantMin) {
+        this.id = id;
         this.producto = producto;
         this.variedad = variedad;
         this.cantidad = cantidad;
@@ -19,14 +21,13 @@ public class Vegetables {
         this.productor = productor;
         this.cantMin = cantMin;
     }
+    public Long getId() { return id; }
 
-    public String getProducto() {
-        return producto;
-    }
+    public void setId(Long id) { this.id = id; }
 
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
+    public String getProducto() { return producto;}
+
+    public void setProducto(String producto) { this.producto = producto;}
 
     public String getVariedad() {
         return variedad;
@@ -71,7 +72,8 @@ public class Vegetables {
     @Override
     public String toString() {
         return "Vegetables{" +
-                "producto='" + producto + '\'' +
+                "id=" + id +
+                ", producto='" + producto + '\'' +
                 ", variedad='" + variedad + '\'' +
                 ", cantidad=" + cantidad +
                 ", precioPorKg=" + precioPorKg +
