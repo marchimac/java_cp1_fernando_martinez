@@ -1,2 +1,2 @@
-## NO ESTÁ TERMINADO
-+ He cambiado la temática para que no sea de libros como mis compañeros
+## Ya está terminado, supongo.
+* Seguro que tiene fallos y espero tu corrección para mejorar
