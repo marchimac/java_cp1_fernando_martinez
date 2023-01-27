@@ -8,26 +8,36 @@ public class Article {
     private String variedad;
     private Double cantidad;
     private Double precioPorKg;
-    private Productor productor;
+    private String prod;
     private Double cantMin;
     private LocalDate entryDate;
 
     public Article() {
     }
 
-    public Article(Long id, String producto, String variedad, Double cantidad, Double precioPorKg, Productor productor, Double cantMin, LocalDate entryDate) {
+//    public Article(Long id, String producto, String variedad, Double cantidad, Double precioPorKg, Productor productor, Double cantMin, LocalDate entryDate) {
+//        this.id = id;
+//        this.producto = producto;
+//        this.variedad = variedad;
+//        this.cantidad = cantidad;
+//        this.precioPorKg = precioPorKg;
+//        this.productor = productor;
+//        this.cantMin = cantMin;
+//        this.entryDate = entryDate;
+//    }
+
+    // TODO Constructor creado desde la línea 75 de la clase Main
+
+
+    public Article(Long id, String producto, String variedad, Double cantidad, Double precioPorKg, String prod, Double cantMin, LocalDate entryDate) {
         this.id = id;
         this.producto = producto;
         this.variedad = variedad;
         this.cantidad = cantidad;
         this.precioPorKg = precioPorKg;
-        this.productor = productor;
+        this.prod = prod;
         this.cantMin = cantMin;
         this.entryDate = entryDate;
-    }
-
-    // TODO Constructor creado desde la línea 72 de la clase Main
-    public Article(Long id, String article, String variety, Double amount, Double pricePerKg, String prod, Double minSale, LocalDate entry) {
     }
 
     public Long getId() { return id; }
@@ -62,13 +72,9 @@ public class Article {
         this.precioPorKg = precioPorKg;
     }
 
-    public Productor getProductor() {
-        return productor;
-    }
+    public String getProd() { return prod; }
 
-    public void setProductor(Productor productor) {
-        this.productor = productor;
-    }
+    public void setProd(String prod) { this.prod = prod; }
 
     public Double getCantMin() {
         return cantMin;
@@ -90,7 +96,7 @@ public class Article {
                 ", variedad = '" + variedad + '\'' +
                 ", cantidad = " + cantidad +
                 ", precio por kg = " + precioPorKg +
-                ", productor = " + productor +
+                ", productor = " + prod +
                 ", cantidad minima de venta = " + cantMin +
                 ", día de entrada = " + entryDate +
                 '}';

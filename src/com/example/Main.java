@@ -71,7 +71,6 @@ public class Main {
 
             LocalDate entryDate = LocalDate.now();
 
-            // TODO Para ponerlo de esta manera he tenido que crear otro constructor en la clase Article, línea 30
             Article articulo = new Article(null, article, variety, amount, pricePerKg, prod, minSale, entry);
 
             Article nuevoArticulo = articleService.create(articulo);
