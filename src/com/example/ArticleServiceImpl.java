@@ -1,40 +1,11 @@
 package com.example;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ArticleServiceImpl implements ArticleService {
-    private List<Article> database = new ArrayList<>();
-    private Long id = 0L;
-
-    public ArticleServiceImpl() {
-
-
-//        Productor productor1 = new Productor("Pepe", "12341234A", "La cruz", "abc@def.com", "5556781239");
-//        Productor productor2 = new Productor("Paco", "81528513S", "los alejos", "hdu@def.com", "4446781239");
-//        Productor productor3 = new Productor("Jose", "98765456G", "Mayor", "poi@def.com", "3336781239");
-//        Productor productor4 = new Productor("Francisco", "82417286B", "Ruiz Aguilera", "aws@def.com", "2226781239");
-//        Productor productor5 = new Productor("Diego", "99547286K", "Ruiz Aguilera", "aws@def.com", "2226781239");
-
-//        this.create(new Article(null, "Tomate", "Cherry", 100.0, 2.0, productor1, 10.0, LocalDate.now()));
-//        this.create(new Article(null, "Tomate", "Kumato", 50.0, 4.0, productor2, 5.0, LocalDate.now()));
-//        this.create(new Article(null, "Pimiento verde", "Padrón", 80.0, 2.0, productor3, 8.0, LocalDate.now()));
-//        this.create(new Article(null, "Pimiento verde", "Italiano", 150.0, 2.0, productor4, 12.0, LocalDate.now()));
-//        this.create(new Article(null, "Calabacín", "Blanco", 45.0, 2.5, productor5, 3.0, LocalDate.now()));
-
-//        Article article1 = new Article(null, "Tomate", "Cherry", 100.0, 2.0, productor1, 10.0, LocalDate.now());
-//        Article article2 = new Article(null, "Tomate", "Kumato", 50.0, 4.0, productor2, 5.0, LocalDate.now());
-//        Article article3 = new Article(null, "Pimiento verde", "Padrón", 80.0, 2.0, productor3, 8.0, LocalDate.now());
-//        Article article4 = new Article(null, "Pimiento verde", "Italiano", 150.0, 2.0, productor4, 12.0, LocalDate.now());
-//        Article article5 = new Article(null, "Calabacín", "Blanco", 45.0, 2.5, productor5, 3.0, LocalDate.now());
-//        this.create(article1);
-//        this.create(article2);
-//        this.create(article3);
-//        this.create(article4);
-//        this.create(article5);
-    }
-
+    private final List<Article> database = new ArrayList<>();
 
     @Override
     public List<Article> findAll() {
@@ -45,7 +16,7 @@ public class ArticleServiceImpl implements ArticleService {
     public Article findById(Long id) {
 
         for (Article article : database) {
-            if (article.getId() == id) {
+            if (Objects.equals(article.getId(), id)) {
                 return article;
             }
         }
@@ -67,7 +38,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     private Long generateId() {
-        Long id = 0L;
+        long id = 0L;
         for (Article article : database)
             id = Math.max(id, article.getId());
 
@@ -81,7 +52,7 @@ public class ArticleServiceImpl implements ArticleService {
             return null;
 
         for (Article article : database) {
-            if (article.getId() == articleToUpdate.getId()) {
+            if (Objects.equals(article.getId(), articleToUpdate.getId())) {
 
                 article.setCantidad(articleToUpdate.getCantidad());
                 article.setPrecioPorKg(articleToUpdate.getPrecioPorKg());
@@ -98,7 +69,7 @@ public class ArticleServiceImpl implements ArticleService {
     public boolean removeById(Long id) {
 
         for (Article article : database) {
-            if (article.getId() == id) {
+            if (Objects.equals(article.getId(), id)) {
                 database.remove(article);
                 return true;
             }

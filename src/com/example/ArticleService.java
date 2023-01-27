@@ -18,14 +18,4 @@ public interface ArticleService {
 
     // borrar
     boolean removeById(Long id);
-
-//    // Buscar productos por tipo de alimento
-//    List<Article> findAllType();
-//
-//    // Buscar productos por rango de precios
-//    List<Article> findAllByPriceRange(Double min, Double max);
-//
-//    // Buscar por productor
-//    String findProductor(String name);
-
 }

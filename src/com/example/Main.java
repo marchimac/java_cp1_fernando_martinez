@@ -17,14 +17,14 @@ public class Main {
 
         do {
 
-
             // Imprimir menú de opciones por consola
             System.out.println("""
                     Bienvenido a mi App
-                    1. Buscar todos los artículos
-                    2. Buscar un articulo por su ID
-                    3. Añadir un nuevo productor
-                    4. Añadir un nuevo artículo
+                    
+                    1. Añadir un nuevo productor
+                    2. Añadir un nuevo artículo
+                    3. Buscar todos los artículos
+                    4. Buscar un articulo por su ID
                     5. Actualizar un artículo
                     6. Borrar un artículo
                     7. Salir de la App
@@ -38,24 +38,6 @@ public class Main {
 
             // Pedir datos y ejecutar método de interfaz
             if (option == 1) {
-                List<Article> articles = articleService.findAll();
-                System.out.println("Hay un total de " + articles.size() + " artículos.");
-                for (Article article : articles)
-                    System.out.println(article);
-
-
-
-            } else if (option == 2) {
-                System.out.println("Introduce el id del artículo a buscar: ");
-                long articleId = entrada.nextLong();
-                Article article = articleService.findById(articleId);
-
-                if (article == null)
-                    System.out.println("404 Not Found");
-                else
-                    System.out.println(article);
-
-            } else if (option == 3) {
                 System.out.println("Introduce el nombre del productor que deseas registrar: ");
                 String name = entrada.next();
 
@@ -78,7 +60,11 @@ public class Main {
 
                 System.out.println();
 
-            } else if (option == 4) {
+
+
+
+
+            } else if (option == 2) {
                 System.out.println("Introduce el tipo de producto que desea añadir: ");
                 String article = entrada.next();
 
@@ -107,6 +93,24 @@ public class Main {
                 Article newArticle = articleService.create(articulo);
 
                 System.out.println("Se ha guardado el artículo de manera correcta con el id: " + newArticle.getId());
+
+            } else if (option == 3) {
+                List<Article> articles = articleService.findAll();
+                System.out.println("Hay un total de " + articles.size() + " artículos.");
+                for (Article article : articles)
+                    System.out.println(article);
+
+            } else if (option == 4) {
+                System.out.println("Introduce el id del artículo a buscar: ");
+                long articleId = entrada.nextLong();
+                Article article = articleService.findById(articleId);
+
+                if (article == null)
+                    System.out.println("404 Not Found");
+                else
+                    System.out.println(article);
+
+
 
             } else if (option == 5) {
                 System.out.println("Introduce el ID del artículo a actualizar: ");

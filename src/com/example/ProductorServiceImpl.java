@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductorServiceImpl implements ProductorService {
-    private List<Productor> database = new ArrayList<>();
+    private final List<Productor> database = new ArrayList<>();
 
     @Override
     public Productor create(Productor productor) {
@@ -21,7 +21,7 @@ public class ProductorServiceImpl implements ProductorService {
     }
 
     private Long generateId() {
-        Long id = 0L;
+        long id = 0L;
         for (Productor productor : database)
             id = Math.max(id, productor.getId());
 
