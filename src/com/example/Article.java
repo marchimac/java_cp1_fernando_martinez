@@ -1,5 +1,7 @@
 package com.example;
 
+import java.time.LocalDate;
+
 public class Article {
     private Long id;
     private String producto;
@@ -8,11 +10,12 @@ public class Article {
     private Double precioPorKg;
     private Productor productor;
     private Double cantMin;
+    private LocalDate entryDate;
 
     public Article() {
     }
 
-    public Article(Long id, String producto, String variedad, Double cantidad, Double precioPorKg, Productor productor, Double cantMin) {
+    public Article(Long id, String producto, String variedad, Double cantidad, Double precioPorKg, Productor productor, Double cantMin, LocalDate entryDate) {
         this.id = id;
         this.producto = producto;
         this.variedad = variedad;
@@ -20,7 +23,13 @@ public class Article {
         this.precioPorKg = precioPorKg;
         this.productor = productor;
         this.cantMin = cantMin;
+        this.entryDate = entryDate;
     }
+
+    // TODO Constructor creado desde la línea 72 de la clase Main
+    public Article(Long id, String article, String variety, Double amount, Double pricePerKg, String prod, Double minSale, LocalDate entry) {
+    }
+
     public Long getId() { return id; }
 
     public void setId(Long id) { this.id = id; }
@@ -69,16 +78,21 @@ public class Article {
         this.cantMin = cantMin;
     }
 
+    public LocalDate getEntryDate() { return entryDate; }
+
+    public void setEntryDate(LocalDate entryDate) { this.entryDate = entryDate; }
+
     @Override
     public String toString() {
-        return "Vegetables{" +
-                "id=" + id +
-                ", producto='" + producto + '\'' +
-                ", variedad='" + variedad + '\'' +
-                ", cantidad=" + cantidad +
-                ", precioPorKg=" + precioPorKg +
-                ", productor=" + productor +
-                ", cantMin=" + cantMin +
+        return "Artículo {" +
+                " id=" + id +
+                ", producto = '" + producto + '\'' +
+                ", variedad = '" + variedad + '\'' +
+                ", cantidad = " + cantidad +
+                ", precio por kg = " + precioPorKg +
+                ", productor = " + productor +
+                ", cantidad minima de venta = " + cantMin +
+                ", día de entrada = " + entryDate +
                 '}';
     }
 }
