@@ -11,11 +11,11 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleServiceImpl() {
 
 
-        Productor productor1 = new Productor("Pepe", "12341234A", "La cruz", "abc@def.com", "5556781239");
-        Productor productor2 = new Productor("Paco", "81528513S", "los alejos", "hdu@def.com", "4446781239");
-        Productor productor3 = new Productor("Jose", "98765456G", "Mayor", "poi@def.com", "3336781239");
-        Productor productor4 = new Productor("Francisco", "82417286B", "Ruiz Aguilera", "aws@def.com", "2226781239");
-        Productor productor5 = new Productor("Diego", "99547286K", "Ruiz Aguilera", "aws@def.com", "2226781239");
+//        Productor productor1 = new Productor("Pepe", "12341234A", "La cruz", "abc@def.com", "5556781239");
+//        Productor productor2 = new Productor("Paco", "81528513S", "los alejos", "hdu@def.com", "4446781239");
+//        Productor productor3 = new Productor("Jose", "98765456G", "Mayor", "poi@def.com", "3336781239");
+//        Productor productor4 = new Productor("Francisco", "82417286B", "Ruiz Aguilera", "aws@def.com", "2226781239");
+//        Productor productor5 = new Productor("Diego", "99547286K", "Ruiz Aguilera", "aws@def.com", "2226781239");
 
 //        this.create(new Article(null, "Tomate", "Cherry", 100.0, 2.0, productor1, 10.0, LocalDate.now()));
 //        this.create(new Article(null, "Tomate", "Kumato", 50.0, 4.0, productor2, 5.0, LocalDate.now()));

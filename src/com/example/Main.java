@@ -8,8 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Instanciar la interfaz
+        // Se instancia la interfaz
         ArticleService articleService = new ArticleServiceImpl();
+        ProductorService productorService = new ProductorServiceImpl();
 
         int option;
         Scanner entrada = new Scanner(System.in);
@@ -22,10 +23,11 @@ public class Main {
                     Bienvenido a mi App
                     1. Buscar todos los artículos
                     2. Buscar un articulo por su ID
-                    3. Añadir un nuevo artículo
-                    4. Actualizar un artículo
-                    5. Borrar un artículo
-                    6. Salir de la App
+                    3. Añadir un nuevo productor
+                    4. Añadir un nuevo artículo
+                    5. Actualizar un artículo
+                    6. Borrar un artículo
+                    7. Salir de la App
                     """);
 
             // Leer qué opción quiere el usuario
@@ -40,6 +42,7 @@ public class Main {
                 System.out.println("Hay un total de " + articles.size() + " artículos.");
                 for (Article article : articles)
                     System.out.println(article);
+
 
 
             } else if (option == 2) {
@@ -61,6 +64,7 @@ public class Main {
 
                 System.out.println("Introduce la dirección del productor: ");
                 String address = entrada.next();
+                entrada.nextLine();
 
                 System.out.println("Introduce el email del productor: ");
                 String email = entrada.next();
@@ -68,9 +72,11 @@ public class Main {
                 System.out.println("Introduce el telefono del productor: ");
                 String phone = entrada.next();
 
-                Productor productor = new Productor(name, nif, address, email, phone);
+                Productor productor = new Productor(null, name, nif, address, email, phone);
 
+                Productor newProductor = productorService.create(productor);
 
+                System.out.println();
 
             } else if (option == 4) {
                 System.out.println("Introduce el tipo de producto que desea añadir: ");
@@ -101,9 +107,50 @@ public class Main {
                 Article newArticle = articleService.create(articulo);
 
                 System.out.println("Se ha guardado el artículo de manera correcta con el id: " + newArticle.getId());
-            }
 
-        } while (option != 6);
+            } else if (option == 5) {
+                System.out.println("Introduce el ID del artículo a actualizar: ");
+                Long articleId = entrada.nextLong();
+
+                Article article = articleService.findById(articleId);
+                System.out.println("Este es el artículo que va a actualizar: " + articleId);
+                System.out.println(article);
+
+                System.out.println("Introduce la nueva cantidad del artículo");
+                Double amount = entrada.nextDouble();
+
+                System.out.println("Introduce el nuevo precio por kilo del artículo");
+                Double newPrice = entrada.nextDouble();
+
+                System.out.println("Introduce la nueva cantidad mínima de venta");
+                Double minimum = entrada.nextDouble();
+
+                article.setCantidad(amount);
+                article.setPrecioPorKg(newPrice);
+                article.setCantMin(minimum);
+
+                Article updateArticle = articleService.update(article);
+
+                if (updateArticle == null)
+                    System.out.println("El artículo no se ha actualizado");
+                else
+                    System.out.println("Artículo actualizado: " + updateArticle);
+
+            } else if (option == 6) {
+                System.out.println("Introduce el ID del artículo que desea borrar:");
+                Long articleId = entrada.nextLong();
+
+                boolean isRemoved = articleService.removeById(articleId);
+
+                if (isRemoved)
+                    System.out.println("Borrado correctamente");
+                else
+                    System.out.println("No se ha podido borrar el artículo");
+
+            } else if (option == 7) {
+                break;
+            }
+        } while (option != 7);
 
         entrada.close();
         System.out.println("End of APP");
