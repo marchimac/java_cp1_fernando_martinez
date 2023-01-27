@@ -40,6 +40,8 @@ public class Main {
                 System.out.println("Hay un total de " + articles.size() + " artículos.");
                 for (Article article : articles)
                     System.out.println(article);
+
+
             } else if (option == 2) {
                 System.out.println("Introduce el id del artículo a buscar: ");
                 long articleId = entrada.nextLong();
@@ -49,16 +51,34 @@ public class Main {
                     System.out.println("404 Not Found");
                 else
                     System.out.println(article);
+
             } else if (option == 3) {
+                System.out.println("Introduce el nombre del productor que deseas registrar: ");
+                String name = entrada.next();
+
+                System.out.println("Introduce el nif del productor: ");
+                String nif = entrada.next();
+
+                System.out.println("Introduce la dirección del productor: ");
+                String address = entrada.next();
+
+                System.out.println("Introduce el email del productor: ");
+                String email = entrada.next();
+
+                System.out.println("Introduce el telefono del productor: ");
+                String phone = entrada.next();
+
+                Productor productor = new Productor(name, nif, address, email, phone);
+
+
+
+            } else if (option == 4) {
                 System.out.println("Introduce el tipo de producto que desea añadir: ");
                 String article = entrada.next();
 
                 System.out.println("Introduce la variedad del producto: ");
                 String variety = entrada.next();
 
-
-                // TODO lo de introducir coma o punto para el decimal debe de ir en función del idioma del sistema utilizado
-                // TODO porque a mi me funciona con el punto pero no con la coma
                 System.out.println("Introduce la cantidad que desea añadir: ");
                 Double amount = entrada.nextDouble();
 
@@ -78,10 +98,9 @@ public class Main {
 
                 Article articulo = new Article(null, article, variety, amount, pricePerKg, prod, minSale, entry);
 
-                Article nuevoArticulo = articleService.create(articulo);
+                Article newArticle = articleService.create(articulo);
 
-                // TODO Al depurar veo que no me guarda los articulos en la data base, todos son null
-                System.out.println("Se ha guardado el artículo de manera correcta con el id: " + nuevoArticulo.getId());
+                System.out.println("Se ha guardado el artículo de manera correcta con el id: " + newArticle.getId());
             }
 
         } while (option != 6);
