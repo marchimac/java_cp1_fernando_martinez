@@ -24,10 +24,11 @@ public class Main {
                     1. Añadir un nuevo productor
                     2. Añadir un nuevo artículo
                     3. Buscar todos los artículos
-                    4. Buscar un articulo por su ID
-                    5. Actualizar un artículo
-                    6. Borrar un artículo
-                    7. Salir de la App
+                    4. Buscar todos los productores
+                    5. Buscar un articulo por su ID
+                    6. Actualizar un artículo
+                    7. Borrar un artículo
+                    8. Salir de la App
                     """);
 
             // Leer qué opción quiere el usuario
@@ -97,6 +98,12 @@ public class Main {
                     System.out.println(article);
 
             } else if (option == 4) {
+                List<Productor> productors = productorService.findAll();
+                System.out.println("Hay un total de " + productors.size() + " productores.");
+                for (Productor productor : productors)
+                    System.out.println(productor);
+
+            } else if (option == 5) {
                 System.out.println("Introduce el id del artículo a buscar: ");
                 long articleId = entrada.nextLong();
                 Article article = articleService.findById(articleId);
@@ -106,7 +113,7 @@ public class Main {
                 else
                     System.out.println(article);
 
-            } else if (option == 5) {
+            } else if (option == 6) {
                 System.out.println("Introduce el ID del artículo a actualizar: ");
                 Long articleId = entrada.nextLong();
 
@@ -134,7 +141,7 @@ public class Main {
                 else
                     System.out.println("Artículo actualizado: " + updateArticle);
 
-            } else if (option == 6) {
+            } else if (option == 7) {
                 System.out.println("Introduce el ID del artículo que desea borrar:");
                 Long articleId = entrada.nextLong();
 
@@ -145,10 +152,10 @@ public class Main {
                 else
                     System.out.println("No se ha podido borrar el artículo");
 
-            } else if (option == 7) {
+            } else if (option == 8) {
                 break;
             }
-        } while (option != 7);
+        } while (option != 8);
 
         entrada.close();
         System.out.println("End of APP");
