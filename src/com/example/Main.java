@@ -20,7 +20,7 @@ public class Main {
             // Imprimir menú de opciones por consola
             System.out.println("""
                     Bienvenido a mi App
-                    
+                                        
                     1. Añadir un nuevo productor
                     2. Añadir un nuevo artículo
                     3. Buscar todos los artículos
@@ -59,10 +59,6 @@ public class Main {
                 Productor newProductor = productorService.create(productor);
 
                 System.out.println();
-
-
-
-
 
             } else if (option == 2) {
                 System.out.println("Introduce el tipo de producto que desea añadir: ");
@@ -109,8 +105,6 @@ public class Main {
                     System.out.println("404 Not Found");
                 else
                     System.out.println(article);
-
-
 
             } else if (option == 5) {
                 System.out.println("Introduce el ID del artículo a actualizar: ");

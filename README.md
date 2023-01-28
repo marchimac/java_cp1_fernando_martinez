@@ -1,2 +1,2 @@
-## Ya está terminado, supongo.
-* Seguro que tiene fallos y espero tu corrección para mejorar
+## NO ESTÁ TERMINADO.
+* Quiero hacer unas mejoras

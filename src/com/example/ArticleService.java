@@ -7,7 +7,7 @@ public interface ArticleService {
     // Buscar todos los vegetales
     List<Article> findAll();
 
-    // Buscar producto por su id
+    // Buscar artículo por su id
     Article findById(Long id);
 
     // crear/guardar un vegetal en base de datos

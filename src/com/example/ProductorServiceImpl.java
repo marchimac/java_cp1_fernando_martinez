@@ -27,4 +27,9 @@ public class ProductorServiceImpl implements ProductorService {
 
         return id + 1;
     }
+
+    @Override
+    public List<Productor> findAll() {
+        return new ArrayList<>(database);
+    }
 }
