@@ -26,16 +26,19 @@ public class Main {
                     3. Buscar todos los artículos
                     4. Buscar todos los productores
                     5. Buscar un articulo por su ID
-                    6. Actualizar un artículo
-                    7. Borrar un artículo
-                    8. Salir de la App
+                    6. Buscar un productor por su ID
+                    7. Actualizar un artículo
+                    8. Actualizar un productor
+                    9. Borrar un artículo
+                    10. Borrar un productor
+                    11. Salir de la App
                     """);
 
             // Leer qué opción quiere el usuario
 
             option = entrada.nextInt();
 
-            System.out.println("Has elegido la opción " + option);
+//            System.out.println("Has elegido la opción " + option);
 
             // Pedir datos y ejecutar método de interfaz
             if (option == 1) {
@@ -114,6 +117,16 @@ public class Main {
                     System.out.println(article);
 
             } else if (option == 6) {
+                System.out.println("Introduce el id del productor a buscar: ");
+                long productorId = entrada.nextLong();
+                Productor productor = productorService.findById(productorId);
+
+                if (productor == null)
+                    System.out.println("404 Not Found");
+                else
+                    System.out.println(productor);
+
+            } else if (option == 7) {
                 System.out.println("Introduce el ID del artículo a actualizar: ");
                 Long articleId = entrada.nextLong();
 
@@ -141,7 +154,39 @@ public class Main {
                 else
                     System.out.println("Artículo actualizado: " + updateArticle);
 
-            } else if (option == 7) {
+            } else if (option == 8) {
+                System.out.println("Introduce el ID del productor a actualizar: ");
+                Long productorId = entrada.nextLong();
+
+                Productor productor = productorService.findById(productorId);
+                System.out.println("Este es el productor que va a actualizar: " + productorId);
+                System.out.println(productor);
+                entrada.nextLine();
+
+                System.out.println("Introduce la nueva dirección del productor");
+                String newAddress = entrada.next();
+                entrada.nextLine();
+
+                System.out.println("Introduce el nuevo email del productor");
+                String newEmail = entrada.next();
+                entrada.nextLine();
+
+                System.out.println("Introduce el nuevo teléfono del productor");
+                String newPhone = entrada.next();
+                entrada.nextLine();
+
+                productor.setDireccion(newAddress);
+                productor.setEmail(newEmail);
+                productor.setTelefono(newPhone);
+
+                Productor updateProductor = productorService.update(productor);
+
+                if (updateProductor == null)
+                    System.out.println("El productor no se ha actualizado");
+                else
+                    System.out.println("Productor actualizado: " + updateProductor);
+
+            } else if (option == 9) {
                 System.out.println("Introduce el ID del artículo que desea borrar:");
                 Long articleId = entrada.nextLong();
 
@@ -152,10 +197,21 @@ public class Main {
                 else
                     System.out.println("No se ha podido borrar el artículo");
 
-            } else if (option == 8) {
+            } else if (option == 10) {
+                System.out.println("Introduce el ID del productor que desea borrar:");
+                Long productorId = entrada.nextLong();
+
+                boolean isRemoved = productorService.removeById(productorId);
+
+                if (isRemoved)
+                    System.out.println("Borrado correctamente");
+                else
+                    System.out.println("No se ha podido borrar el productor");
+
+            } else if (option == 11) {
                 break;
             }
-        } while (option != 8);
+        } while (option != 11);
 
         entrada.close();
         System.out.println("End of APP");

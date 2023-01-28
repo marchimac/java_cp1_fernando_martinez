@@ -9,4 +9,13 @@ public interface ProductorService {
 
     // Buscar todos los productores
     List<Productor> findAll();
+
+    // Buscar productor por su id
+    Productor findById(Long id);
+
+    // Actualizar un productor
+    Productor update(Productor productorToUpdate);
+
+    // Borrar
+    boolean removeById(Long id);
 }
